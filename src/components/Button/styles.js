@@ -12,6 +12,11 @@ export const Container = styled.button`
 
    margin-top: 2.4rem;
 
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 0.6rem;
+
    background-color: ${ ({ theme }) => theme.COLORS.BG_ROSE };
    color: ${ ({ theme }) => theme.COLORS.TEXT_GRAY_300 }
 

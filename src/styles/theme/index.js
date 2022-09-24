@@ -3,6 +3,7 @@ export const theme = {
     BG_PRIMARY: '#1C1B1E',
     BG_SECONDARY: '#262529',
     BG_ROSE: '#FF859B',
+    BG_ROSE_5: "rgba(255, 133, 155, 0.05)",
 
     COLOR_LINE: '#3E3B47',
 

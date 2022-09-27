@@ -17,6 +17,10 @@ export default createGlobalStyle`
       -webkit-font-smoothing: antialiased;
    }
 
+   body::-webkit-scrollbar {
+      display: none;
+   }
+
    body, input, button, textarea {
       font-family: 'Roboto Slab', serif;
       font-size: 1.6rem;

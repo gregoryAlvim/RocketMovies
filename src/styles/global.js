@@ -17,10 +17,6 @@ export default createGlobalStyle`
       -webkit-font-smoothing: antialiased;
    }
 
-   body::-webkit-scrollbar {
-      display: none;
-   }
-
    body, input, button, textarea {
       font-family: 'Roboto Slab', serif;
       font-size: 1.6rem;
@@ -40,4 +36,13 @@ export default createGlobalStyle`
       filter: brightness(0.9);
    }
 
+   ::-webkit-scrollbar {
+      width: 0.8rem;
+   }
+
+   ::-webkit-scrollbar-thumb {
+      width: 5rem;
+      background: ${ ({theme}) => theme.COLORS.BG_ROSE };
+      border-radius: 0.8rem;  
+   }
 `

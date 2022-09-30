@@ -54,12 +54,12 @@ export function Home() {
 
             <Link to="detailMovie/1">
                <MovieCard key={3} data={{
-                  title: 'A cabana',
-                  ratingStars: 3,
+                  title: 'Lucy',
+                  ratingStars: 1,
                   description: 'Pragas nas colheitas fizeram a civilização humana regredir para uma sociedade agrária em futuro de data desconhecida. Cooper, ex-piloto da NASA, tem uma fazenda com sua família. Murphy, a filha de dez anos de Cooper, acredita que seu quarto está assombrado por um fantasma que tenta se Pragas nas colheitas fizeram a civilização humana regredir para uma sociedade agrária em futuro de data desconhecida. Cooper, ex-piloto da NASA, tem uma fazenda com sua família. Murphy, a filha de dez anos de Cooper, acredita que seu quarto está assombrado por um fantasma que tenta se ',
                   tags: [
-                     { id: '1', name: 'Suspense' },
-                     { id: '2', name: 'Terror' },
+                     { id: '1', name: 'Ação' },
+                     { id: '2', name: 'Futurista' },
                   ]
                }} />
             </Link>

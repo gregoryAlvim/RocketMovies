@@ -45,4 +45,10 @@ export default createGlobalStyle`
       background: ${ ({theme}) => theme.COLORS.BG_ROSE };
       border-radius: 0.8rem;  
    }
+
+   input::-webkit-outer-spin-button,
+   input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+   }
 `

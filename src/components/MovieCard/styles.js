@@ -1,10 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-   width: 100%;
-   padding: 0 12.3rem;
-   margin-top: 3.7rem;
-
+   
 `;
 
 export const Card = styled.div`
@@ -13,14 +10,14 @@ export const Card = styled.div`
    border-radius: 1.6rem;
 
    padding: 3.2rem;
-
+   margin-right: 8px;
+   
    display: flex;
    flex-direction: column;
    gap: 0.5rem;
 `;
 
 export const Title = styled.h2`
-   width: 100%;
    color: ${({ theme }) => theme.COLORS.TEXT_WHITE};
 
    font-weight: 700;

@@ -3,10 +3,6 @@ import { Container, Title, Card, Description, Tags } from './styles';
 import { Rating } from '../Rating';
 import { Tag } from '../Tag';
 
-import { FiStar } from 'react-icons/fi';
-import {theme} from '../../styles/theme';
-
-
 export function MovieCard({ data, ...rest }) {
    return (
       <Container {...rest}>

@@ -37,17 +37,19 @@ export const Form = styled.form`
       font-size: 1.4rem;
       line-height: 1.8rem;
    }
-
-   > a {
-      margin-top: 4.2rem;
-      color: ${ ({ theme }) => theme.COLORS.TEXT_ROSE };
-      display: flex;
-      justify-content: center;
-   }
 `;
 
 export const Background = styled.div`
    flex: 1;
    background: url(${backgroundImg}) no-repeat center center;
    background-size: cover;
+`;
+
+export const ButtonText = styled.button`
+   margin-top: 4.2rem;
+   color: ${ ({ theme }) => theme.COLORS.TEXT_ROSE };
+   display: flex;
+   justify-content: center;
+   background: none;
+   border: none;
 `;

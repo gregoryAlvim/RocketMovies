@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
+import { useAuth } from '../../hooks/auth';
+
 import { Input } from '../../components/Input';
 import { Button } from '../../components/Button';
 
@@ -11,6 +13,12 @@ export function SignIn() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const { signIn } = useAuth();
+
+  function handleSignIn() {
+    signIn({ email, password });
+  }
   
   return (
     <Container>
@@ -34,7 +42,10 @@ export function SignIn() {
           onChange={ event => setPassword(event.target.value) }
         />
 
-        <Button title="Entrar" />
+        <Button 
+          title="Entrar"
+          onClick={handleSignIn}
+        />
 
         <Link to="/create-account">
           Criar conta

@@ -2,9 +2,9 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 
 
+import { AuthProvider } from './hooks/auth';
 import { Routes}  from './routes';
 import { theme } from './styles/theme';
-import { AuthProvider } from './hooks/auth';
 import { ThemeProvider } from 'styled-components';
 
 import GlobalStyles from './styles/global';

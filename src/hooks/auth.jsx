@@ -1,12 +1,20 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 
 import { api } from "../services/api";
 
 const AuthContext = createContext({});
 
+
 function AuthProvider({children}) {
 
    const [data, setData] = useState({});
+
+   function SignOut() {
+      localStorage.removeItem("@rocketmovies:user");
+      localStorage.removeItem("@rocketmovies:token");
+
+      setData({});
+   }
 
    async function signIn({ email, password }) {
 
@@ -15,9 +23,11 @@ function AuthProvider({children}) {
          const response = await api.post("/sessions", { email, password });
          const { user, token } = response.data;
 
-         AuthProvider.defaults.headers.authorization = `Bearer ${token}`;
+         localStorage.setItem("@rocketmovies:user", JSON.stringify(user));
+         localStorage.setItem("@rocketmovies:token", token);
 
-         setData( user, token );
+         api.defaults.headers.authorization = `Bearer ${token}`;
+         setData({ user, token });
 
       } catch (error) {
          
@@ -30,8 +40,23 @@ function AuthProvider({children}) {
       }
    }
 
+   useEffect(() => {
+      const user = localStorage.getItem("@rocketmovies:user");
+      const token = localStorage.getItem("@rocketmovies:token");
+
+      if (user && token) {
+         api.defaults.headers.authorization = `Bearer ${token}`;
+
+         setData({
+            token,
+            user: JSON.parse(user),
+         });
+      }
+
+   }, []);
+
    return (
-      <AuthContext.Provider value={{ signIn, user: data.user }}>
+      <AuthContext.Provider value={{ signIn, user: data.user, SignOut }}>
          {children}
       </AuthContext.Provider>
    )

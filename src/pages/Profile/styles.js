@@ -23,9 +23,7 @@ export const Form = styled.form`
    }
 
    .inputClass {
-      &::placeholder {
-         color: ${ ({ theme }) => theme.COLORS.TEXT_WHITE};
-      }
+      color: ${ ({ theme }) => theme.COLORS.TEXT_WHITE};
    }
 `;
 

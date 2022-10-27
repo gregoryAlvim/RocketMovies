@@ -1,12 +1,13 @@
 import { useState } from 'react';
+import { FiMail, FiLock, FiUser, FiCamera } from "react-icons/fi";
 
+import { api } from '../../services/api';
 import { useAuth } from '../../hooks/auth';
-
 import { Input } from '../../components/Input';
 import { Button } from '../../components/Button';
 import { BackButton } from '../../components/BackButton';
 
-import { FiMail, FiLock, FiUser, FiCamera } from "react-icons/fi";
+import avataPlaceholder from '../../assets/avatar_placeholder.svg';
 import { Container, Header, Form, Avatar } from './styles';
 
 export function Profile() {
@@ -18,7 +19,8 @@ export function Profile() {
    const [oldPassword, setOldPassword] = useState();
    const [newPassword, setNewPassword] = useState();
 
-   const [avatar, setAvatar] = useState(user.avatar);
+   const avatarURL = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avataPlaceholder;
+   const [avatar, setAvatar] = useState(avatarURL);
    const [avatarFile, setAvatarFile] = useState(null);
 
    async function handleUpdate() {

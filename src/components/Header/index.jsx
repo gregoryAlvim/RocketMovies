@@ -1,13 +1,18 @@
-import { Input } from '../Input';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
+
+import { api } from "../../services/api";
 import { useAuth } from '../../hooks/auth';
+
+import { Input } from '../Input';
 
 import { Container, Profile } from './styles';
 
+export function Header({onChange}) {
 
-export function Header() {
+   const { user, SignOut } = useAuth();
 
-   const { SignOut } = useAuth();
+   const avatarURL = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avataPlaceholder;
 
    function handleSignOut() {
       SignOut();
@@ -20,19 +25,20 @@ export function Header() {
          <Input 
             type='text'
             placeholder='Pesquisar pelo título'
+            onChange={onChange}
          />
  
 
          <Profile>
             <div>
-               <strong> Grégory Alvim </strong>
+               <strong>{user.name}</strong>
                <button
                   onClick={handleSignOut}
                > sair </button>
             </div>
 
             <Link to="/profile">
-               <img src="https://github.com/gregoryAlvim.png" alt="Foto de perfil do usuário logado no RocketMovies" />
+               <img src={avatarURL} alt="Foto de perfil do usuário logado no RocketMovies" />
             </Link>
          </Profile>
       </Container>

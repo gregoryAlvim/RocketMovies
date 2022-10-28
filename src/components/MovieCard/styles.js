@@ -15,6 +15,12 @@ export const Card = styled.div`
    display: flex;
    flex-direction: column;
    gap: 0.5rem;
+
+   &:hover {
+      transition: 0.5s;
+      cursor: pointer;
+      background: ${({ theme }) => theme.COLORS.BG_ROSE_3};
+   };
 `;
 
 export const Title = styled.h2`

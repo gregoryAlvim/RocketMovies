@@ -4,6 +4,7 @@ export const theme = {
     BG_SECONDARY: '#262529',
     BG_ROSE: '#FF859B',
     BG_ROSE_5: "rgba(255, 133, 155, 0.05)",
+    BG_ROSE_3: "rgba(255, 133, 155, 0.15)",
     BG_GRAY_200: '#948F99',
     BG_GRAY_300: '#312E38',
     BG_GRAY_500: '#0D0C0F',

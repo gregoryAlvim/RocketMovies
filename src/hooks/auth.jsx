@@ -7,9 +7,11 @@ const AuthContext = createContext({});
 
 function AuthProvider({children}) {
 
+   
    const [data, setData] = useState({});
-
+   
    function SignOut() {
+
       localStorage.removeItem("@rocketmovies:user");
       localStorage.removeItem("@rocketmovies:token");
 

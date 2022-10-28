@@ -1,26 +1,38 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 import { api } from "../../services/api";
 import { useAuth } from "../../hooks/auth";
 
 import { Header } from '../../components/Header';
 import { BackButton } from '../../components/BackButton';
+import { Button } from '../../components/Button';
 import { Rating } from '../../components/Rating';
 import { Tag } from '../../components/Tag';
 
+import { FiX } from 'react-icons/fi';
 import { MdOutlineWatchLater } from 'react-icons/md';
 import { Container, Content, BoxTitleAndRating, Title, BoxCreatedAt, Registered, Tags, Description } from './styles';
 
 export function Details() {
 
    const { user } = useAuth();
+   const navigate = useNavigate();
 
    const params = useParams();
    const avatarURL = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avataPlaceholder;
 
-
    const [movie, setMovie] = useState(null);
+
+   function handleComebackToPreviousPage() {
+      navigate(-1);
+   }
+
+   async function handleDeleteMovie() {
+      const response = await api.delete(`movie-notes/${params.id}`);
+      alert( response.data.message );
+      handleComebackToPreviousPage();
+   }
 
    useEffect(() => {
       async function fetchMovie() {
@@ -37,7 +49,13 @@ export function Details() {
          <Header />
 
          <Content>
-            <BackButton className='BackButtonDetails' />
+            <div className="divButtons">
+               <BackButton className='BackButtonDetails' />
+               <Button 
+                  icon={FiX}
+                  onClick={handleDeleteMovie}
+               />
+            </div>
 
             {
                movie && 

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { api } from "../../services/api";
 
@@ -12,18 +12,36 @@ import { Container, MyMovies, AddMovies, Movies } from './styles';
 
 export function Home() {
 
+   const navigate = useNavigate();
+
    const [search, setSearch] = useState("");
-   const [movies, setMovies] = useState("");
+   const [movies, setMovies] = useState([]);
 
    useEffect(() => {
+
       async function fetchMovies() {
-         const response = await api.get("movie-notes");
-         console.log(response.data);
-         setMovies(response.data);
+         try {
+
+            const response = await api.get(`movie-notes?title=${search}`);
+            setMovies(response.data);
+
+         } catch (error) {
+
+            if (error.response) {
+               alert(error.response.data.message);
+            } else {
+               alert(" Algo deu errado ao buscar as notas dos filmes! ");
+            }
+         }
       }
 
       fetchMovies();
-   }, []);
+
+   }, [search]);
+
+   function handleDetails(id) {
+      navigate(`detail-movie/${id}`);
+   }
 
    return (
       <Container>
@@ -48,19 +66,14 @@ export function Home() {
 
          <Movies>
             {
-               <Link to="detailMovie/1">
-                  <MovieCard key={1} id="FirstMovieCard" data={{
-                     title: 'The spider man',
-
-                     ratingStars: 4,
-                     description: 'Pragas nas colheitas fizeram a civilização humana regredir para uma sociedade agrária em futuro de data desconhecida. Cooper, ex-piloto da NASA, tem uma fazenda com sua família. Murphy, a filha de dez anos de Cooper, acredita que seu quarto está assombrado por um fantasma que tenta se Pragas nas colheitas fizeram a civilização humana regredir para uma sociedade agrária em futuro de data desconhecida. Cooper, ex-piloto da NASA, tem uma fazenda com sua família. Murphy, a filha de dez anos de Cooper, acredita que seu quarto está assombrado por um fantasma que tenta se ',
-                     tags: [
-                        { id: '1', name: 'Drama' },
-                        { id: '2', name: 'Ação' },
-                        { id: '3', name: 'Super-Herói' },
-                     ]
-                  }} />
-               </Link>
+               movies.map(movie => (
+                  <MovieCard
+                     id="FirstMovieCard"
+                     key={String(movie.id)}
+                     onClick={() => handleDetails(movie.id)}
+                     data={movie}
+                  />
+               ))
             }
          </Movies>
       </Container>

@@ -11,7 +11,7 @@ export function MovieCard({ data, ...rest }) {
                {data.title}
             </Title>
 
-            <Rating rating={data.ratingStars} />
+            <Rating rating={data.rating} />
 
             <Description>
                {data.description}

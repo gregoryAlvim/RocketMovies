@@ -18,7 +18,21 @@ export const Content = styled.div`
    main {
       height: 60vh;
       overflow-y: auto;
-   }    
+   }
+   
+   .divButtons {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      button {
+         background: none;
+         padding: 0;
+         margin: 0;
+         width: 2rem;
+         color: ${ ({ theme }) => theme.COLORS.BG_ROSE };
+      }
+   }
 `;
 
 export const BoxTitleAndRating = styled.div`

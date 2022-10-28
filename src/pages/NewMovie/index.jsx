@@ -114,9 +114,11 @@ export function NewMovie() {
 
                <BoxOptions>
                   <Button 
-                     title="Excluir filme"
+                     title="Cancelar"
                      className="deleteMovie"
-                  />   
+                     onClick={handleComebackToPreviousPage}
+                  />
+
                   <Button 
                      title="Salvar filme"
                      className="saveMovieChanges"

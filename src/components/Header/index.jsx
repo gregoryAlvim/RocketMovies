@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { api } from "../../services/api";
 import { useAuth } from '../../hooks/auth';
@@ -11,10 +10,12 @@ import { Container, Profile } from './styles';
 export function Header({onChange}) {
 
    const { user, SignOut } = useAuth();
+   const navigate = useNavigate();
 
    const avatarURL = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avataPlaceholder;
 
    function handleSignOut() {
+      navigate("/");
       SignOut();
    }
 

@@ -6,9 +6,9 @@
 https://user-images.githubusercontent.com/43592358/198748812-152a0551-4ca9-4443-83bb-9c30a6c3e477.mp4
 
 
-<h4 align="center">
+<!-- <h4 align="center">
    🚧 README em construção... 🚧
-</h4>
+</h4> -->
 
 
 <p align="center"> Frontend da aplicação desenvolvido com HTML, CSS, JavaScript e React.js </p>

@@ -90,6 +90,7 @@ Tecnologias utilizadas para desenvolvimento do Frontend:
 - [Git](https://git-scm.com/)
 - [Axios](https://axios-http.com/ptbr/)
 - [Visual Studio Code](https://code.visualstudio.com/)
+- [API Reference](https://github.com/gregoryAlvim/Node_API)
 
 <br/>
 
